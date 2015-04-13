@@ -23,6 +23,21 @@ void rotateMatrix(vector<vector<int> >& matrix){
 	return;
 }
 
+//a better method.
+void swap(int &a, int &b){
+    int t = a;
+    a = b;
+    b = t;
+}
+void transpose(int a[][4], int n){
+    for(int i=0; i<n; ++i)
+        for(int j=i+1; j<n; ++j)
+            swap(a[i][j], a[j][i]);
+    for(int i=0; i<n/2; ++i)
+        for(int j=0; j<n; ++j)
+            swap(a[i][j], a[n-1-i][j]);
+}
+
 int main(){
 	vector<vector<int> > matrix;
 	for(int i=0; i<3; i++){
