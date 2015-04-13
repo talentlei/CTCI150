@@ -24,6 +24,14 @@ void rotateMatrix(vector<vector<int> >& matrix){
 }
 
 //a better method.
+/*
+ 第一步交换主对角线两侧的对称元素，第二步交换第i行和第n-1-i行，即得到结果
+原图：           第一步操作后：   第二步操作后：
+1 2 3 4         1 5 9 13        4 8 12 16
+5 6 7 8         2 6 10 14       3 7 11 15
+9 10 11 12      3 7 11 15       2 6 10 14
+13 14 15 16     4 8 12 16       1 5 9 13
+*/
 void swap(int &a, int &b){
     int t = a;
     a = b;
