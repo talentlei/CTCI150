@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
 
-
-
 using namespace std;
 //give the api isSubstring(str,str)
 //use one call isSubstring to judge if s1 and s2 are rotation 
