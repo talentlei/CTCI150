@@ -25,7 +25,7 @@ void reDupli(LinkedList head){
 				pre=pre.next;
 			}
 		}
-		
+		cur=cur.next;	
 	}
 	return head;
 }
