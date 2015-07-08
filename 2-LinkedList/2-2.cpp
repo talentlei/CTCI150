@@ -13,11 +13,11 @@ LinkedList kthToLast(LinkedList head,int k){
 		return NULL;
 	int i=0;
 	LinkedList p=head;
-	while(p!=NULL and i<k){
+	while(p!=NULL and i<k-1){
 		p=p.next;
 		i++;
 	}
-	if(i!=k or p==NULL) return NULL;
+	if(i!=k-1 or p==NULL) return NULL;
 	LinkedList cur=head;
 	while(p!=NULL){
 		cur=cur.next;
