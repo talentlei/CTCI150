@@ -6,6 +6,7 @@
 
 using namespace std;
 //set col j and row i to 0 when matrix[i][j]=0
+//o(n*m)time  o(m+n)space
 void setMatrix(vector<vector<int> >& matrix){
 	if(matrix.size()==0 ||matrix[0].size()==0)
 		return;
@@ -34,7 +35,49 @@ void setMatrix(vector<vector<int> >& matrix){
 
 	
 }
+//o(n*m)time o(1)space
 
+void setMatrix(vector<vector<int> >& matrix){
+	if(matrix.size()==0||matrix[0].size()==0)
+		return;
+	int m = matrix.size();
+	int n = matrix[0].size();
+	bool col = false, row = false;
+	for(int i=0; i<m;i++)
+		if(matrix[i][0]==0){
+			row = true;
+			break;
+		}
+	for(int i=0; i<n;i++)
+		if(matrix[0][1]==0){
+			col = true;
+			break;
+		}
+		
+	for(int i=0; i<m; i++){
+		for(int j=0; j<n; j++){
+			if(matrix[i][j]==0){
+				matrix[0][j]==0;
+				matrix[i][0]==0;
+			}
+		}
+	}
+	for(int i=0; i<m;i++){
+		for(int j=0; j<n; j++){
+			if(matrix[0][j]==0||matrix[i][0]==0)
+				matrix[i][j]=0;
+		}
+	}
+	if(row){
+		for(int i=0; i<m;i++)
+			matrix[i][0] = 0;
+	}
+	if(col){
+		for(int i=0; i<n;i++)
+			matrix[0][i] = 0;
+	}
+	return;
+}
 int main(){
 	vector<vector<int> > matrix;
 	for(int i=0; i<3; i++){
