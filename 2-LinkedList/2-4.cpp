@@ -7,23 +7,16 @@ class LinkedList{
 }
  */
 
-LinkedList partition(LinkedList head, int x){
-	if(head==NULL || head.next==NULL)
-		return head;
-	LinkedList pre=head,cur=head.next;
-	bool isFoundX=false;
-	if(head.val>=x) isFoundX=true;
-	while(cur!=NULL){
-		if(isFoundX && cur.val<x){
-			pre.next=cur.next;
-			cur.next=head;
-			head=cur;
-			cur=pre.next;
-			continue;
-		}
-		else if(!isFoundX && cur.val>=x)
-			isFoundX=true;
-		pre=pre.next;
-		cur=cur.next;
-	}
+ListNode* partition(ListNode* head, int x) {
+        ListNode h1(0),h2(0);
+        ListNode* l1 = &h1,*l2 =&h2;
+        while(head!=nullptr){
+            if(head->val>=x)   l2=l2->next=head;
+            else   l1=l1->next=head;
+            head = head->next;
+        }
+        l2->next = NULL;
+        l1->next = h2.next;
+        return h1.next;
+    }
 }
