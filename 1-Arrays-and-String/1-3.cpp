@@ -16,6 +16,9 @@ bool isPermu(string s1,string s2){
 			return false;
 		chack[s2[i]]--;
 	}
+	for(int i:chack)
+		if(i!=0)
+			return false;
 	return true;
 }
 
