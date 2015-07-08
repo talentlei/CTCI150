@@ -8,42 +8,28 @@ class LinkedList{
 }
  */
 
-LinkedList add(LinkedList l1, LinkedList l2){
-	if(l1==NULL)
-		return l2;
-	if(l2==NULL)
-		return l1;
-	int re=0,tsum=0;
-	LinkedList thead(0);
-	LinkedList pre=thead;
-	while(l1!=NULL && l2!=NULL){
-		tsum=re+l1.val+l2.val;
-		re=tsum/10;
-		tsum=tsum%10;
-		LinkedList temp(tsum);
-		pre.next=temp;
-		pre=temp;
-		l1=l1.next;
-		l2=l2.next;
-	}
-	LinkedList rest=NULL;
-	if (l1!=NULL)
-		rest=l1;
-	if(l2!=NULL )
-		rest=l2;
-	while(res!=NULL){
-		tsum=re+res.val;
-		re=tsum/10;
-		tsum=tsum%10;
-		LinkedList temp(tsum);
-		pre.next=temp;
-		pre=temp;
-		res=res.next;
-	}
-	if(re!=0){
-		LinkedList temp(re);
-		pre.next=temp;
-	}
-	return thead.next;
-}
+ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        if(!l1) return l2;
+        if(!l2) return l1;
+        int carry=0,sum,a,b;
+        ListNode thead(0);
+        ListNode* temp= &thead;
+        while(l2!=NULL ||l1!=NULL){
+            a=(l1==NULL)?0:l1->val;
+            b=(l2==NULL)?0:l2->val;
+            sum = a+b+carry;
+            carry = sum/10;
+            sum = sum%10;
+            ListNode* t =new ListNode(sum);
+            temp =temp->next = t;
+            if(l1) l1=l1->next;
+            if(l2) l2 = l2->next;
+            
+        }
+        if(carry!=0){
+            ListNode* t =new ListNode(carry); 
+            temp->next = t;
+        }
+        return thead.next;
+    }
 
