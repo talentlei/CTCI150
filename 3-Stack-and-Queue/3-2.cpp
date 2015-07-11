@@ -28,12 +28,12 @@ public:
     bool empty() const{
         return m_stk.empty();
     }
-    int top() const{
+    T top() const{
         if(empty())
             throw exception("empty stack");
         retun m_stk.top();
     }
-    int Min() const{
+    T Min() const{
         if(empty())
             throw exception("empty stack");
         return m_minstk.top();
