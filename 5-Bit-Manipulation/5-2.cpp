@@ -12,4 +12,5 @@ void binary(double a){
         else  bit.append("0");
     }
     if(a!=0.0) cout<<"ERROR"<<endl;
+    else cout<<bit<<endl;
 }
