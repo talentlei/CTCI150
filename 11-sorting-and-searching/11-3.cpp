@@ -1,26 +1,20 @@
-
-int findRotateIndex(const vector<int>& arr){
-  
-}
-int findEWithOutDuplication(const vector<int>& arr,int target){
-  int end = arr.size()-1;
-  int beg = 0,tail = end;
-  if(target == arr[tail]) return tail;
+int findElement(const vector<int>& arr,int target){
   while(beg<=end){
     int mid = beg+(end-beg)/2;
     if(arr[mid]==target) return mid;
-    if(target<arr[tail]){
-      //right half
-      if(arr[mid]>=arr[tail]||arr[mid]<target)
+    if(arr[beg]<arr[mid]){
+      //left half is sorted
+      if(arr[beg]<=target&&target<arr[mid])
+        end = mid-1;
+      else end = mid+1;
+    }
+    else if(arr[beg]>arr[mid]){
+      //right half sorted
+      if(arr[mid]>target && target>arr[end])
         beg = mid+1;
       else end = mid-1;
-    }
-    else{
-      if(arr[mid]<=arr[tail]||arr[mid]>target)
-        end = mid-1;
-      else beg = mid+1;
       
-    }
+    }else beg++;
   }
   return -1;
 }
