@@ -10,6 +10,7 @@ void printLastK(string infile,int k){
         vec[ind++]=line;
         cnt++;
     }
+    is.close();
     if(cnt>=k){
         for(int i=0; i<k; i++)
             cout<< vec[(ind+i)%k]<<end;
