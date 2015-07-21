@@ -15,7 +15,7 @@ void MasterMind(string solution, string guess){
   int pcnt=0;
   for(unordered_map<char>::iterator iter=phits.begin(); iter!=phits.end(); iter++){
     if(hits.count(iter->first)!=0){
-      int dt = max(iter->second,hits[iter->first]);
+      int dt = min(iter->second,hits[iter->first]);
       pcnt +=  dt;
     }
   }
