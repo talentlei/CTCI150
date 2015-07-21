@@ -1,5 +1,6 @@
 
 //find the first position , which max(A[0:pos])!=pos;
+//o(n) time o(n)space
 pair<int,int> sortPart(const vector<int> & A){
   if(A.size()<2) return make_pair(-1,-1);
   int n = A.size();
