@@ -28,3 +28,26 @@ BiNode* BST2DoubleList(BiNode* root){
     }
     return head;
 }
+
+BiNode* BST2DoubleList2(BiNode*root){
+  if(root==nullptr)
+    return root;
+  
+  BiNode left=nullptr,right=nullptr;
+  if(root->node1){
+    left = BST2DoubleList2(root->node1);
+    BiNode* ptr = left;
+    while(ptr->node2){
+      ptr = ptr->node2;
+    }
+    ptr->node2 = root;
+    root->node1 = ptr;
+  }
+  if(root->node2){
+    right = BST2DoubleList2(root->node2);
+    root->node2 = right;
+    right->node1 = root;
+  }
+  return left?left:root;
+  
+}
