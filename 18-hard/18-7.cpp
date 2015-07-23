@@ -25,15 +25,12 @@ string findMaxWordcompose(vector<string>& dict){
   sort(dict.begin(),dict.end(),cmp);
   for(string str: dict)
     midres[str] = true;
-  for(int i=1; i<dict.size(); i++){
+  for(int i=dict.size()-1; i>=1; i--){
     for(int j=0; j<i; j++){
       int size = dict[j].size();
       if(dict[j]==dict[i].substr(0,size)&&dict[i].size()>size){
-        if(compose(str,dict)){
-          if(dict[i].size()>max){
-            maxword = dict[i];
-            max = dict[i].size();
-          }
+        if(compose(dict[i].substr(size,dict[i].size()-size,dict)){
+          return dict[i];
         }
       }
     }
