@@ -24,3 +24,27 @@ int numberOf2(int n){
   }
   return cnt;
 }
+//count the number 2 in d position
+int countNumber2(int n, int d){
+  int power10 = 10^d;
+  int nextPower = power10*10;
+  int right = n% power10;
+  int digit = (n/power10)%10;
+  
+  int Down = n-n%nextPower;
+  int Up   = Down+nextPower;
+  int cnt = 0;
+  if(digit<2)
+    cnt = Down/10;
+  else if(digit=2)
+    cnt = Down/10+right+1;
+  else cnt = Up/10;
+  return cnt;
+  
+}
+int numberOf2_2(int n){
+  int len = length(n);
+  for(int i=0; i<len; i++){
+    countNumber2(n,len);
+  }
+}
